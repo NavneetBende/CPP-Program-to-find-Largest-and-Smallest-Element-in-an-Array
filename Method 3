@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int minimum(int arr[], int i, int end)
+{
+   int min;
+
+   if(i == end-1)
+    return (arr[i] < arr[i + 1]) ? arr[i] : arr[i + 1];
+
+   min = minimum(arr, i + 1, end);
+
+   return (arr[i] < min) ? arr[i] : min; } int maximum(int arr[], int i, int end) { int max; if(i == end-1) return (arr[i] > arr[i + 1]) ? arr[i] : arr[i + 1];
+
+   max = maximum(arr, i + 1, end);
+
+   return (arr[i] > max) ? arr[i] : max;
+}
+int main(){
+
+   int arr[] = {10, 67, 89, 78, 34, 2, 95};
+   int n = sizeof(arr)/sizeof(arr[0]);
+
+   cout<<minimum(arr, 0, n-1)<<endl<<maximum(arr, 0, n-1);
+}
